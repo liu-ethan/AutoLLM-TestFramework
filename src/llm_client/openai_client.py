@@ -62,7 +62,7 @@ class LLMClient:
                 # 发起请求
                 response = self.client.chat.completions.create(
                     model=self.model,
-                    messages=messages,
+                    messages=messages,  # type: ignore
                     timeout=self.timeout_seconds,
                 )
                 # 只返回首条输出内容

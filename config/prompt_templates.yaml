@@ -9,7 +9,7 @@ generation_prompt: |
   - params: 查询参数对象（可为空对象）
   - data: 请求体对象（可为空对象）
   - expected: 预期结果（自然语言或结构化文本）
-  - assert_type: exact_match 或 semantic_match
+  - assert_type: semantic_match
   - use_ai_assertion: true 或 false
   不要输出额外说明文字。
 
