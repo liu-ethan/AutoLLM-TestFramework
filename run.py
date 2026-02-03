@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 import sys
 
@@ -11,10 +12,21 @@ from src.utils.file_handler import read_yaml
 from src.utils.logger import get_logger
 
 
-def _run_pytest() -> int:
+def _run_pytest(settings: dict) -> int:
     """运行 Pytest 并返回退出码。"""
 
-    return pytest.main(["-q", "test_runner/test_executor.py"])  # type: ignore[no-any-return]
+    paths = settings.get("paths", {})
+    results_dir = paths.get("allure_results_dir", "allure-results")
+    os.makedirs(results_dir, exist_ok=True)
+
+    return pytest.main(
+        [
+            "-q",
+            "test_runner/test_executor.py",
+            "--alluredir",
+            results_dir,
+        ]
+    )  # type: ignore[no-any-return]
 
 
 def _generate_allure_report(settings: dict) -> None:
@@ -68,9 +80,9 @@ def main() -> int:
     exit_code = 0
     if args.mode in {"run", "all"}:
         logger.info("Running tests...")
-        exit_code = _run_pytest()
+        exit_code = _run_pytest(settings)
 
-    if args.mode == "all":
+    if args.mode in {"run", "all"}:
         _generate_allure_report(settings)
 
     return exit_code

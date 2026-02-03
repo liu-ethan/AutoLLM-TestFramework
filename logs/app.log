@@ -34,3 +34,16 @@
 2026-02-03 20:13:47,973 | INFO | test_runner.test_executor | Executing case: DELETE http://localhost:1234/api/user/delete/1
 2026-02-03 20:13:50,501 | INFO | test_runner.test_executor | Executing case: DELETE http://localhost:1234/api/user/delete/1
 2026-02-03 20:13:52,107 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/1
+2026-02-03 20:24:36,075 | INFO | __main__ | Running tests...
+2026-02-03 20:24:36,124 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/login
+2026-02-03 20:24:38,274 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/login
+2026-02-03 20:24:39,876 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/page
+2026-02-03 20:24:41,596 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/page
+2026-02-03 20:24:43,558 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/add
+2026-02-03 20:24:46,874 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/add
+2026-02-03 20:24:48,626 | INFO | test_runner.test_executor | Executing case: PUT http://localhost:1234/api/user/password/1
+2026-02-03 20:24:50,392 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/forget
+2026-02-03 20:24:52,313 | INFO | test_runner.test_executor | Executing case: DELETE http://localhost:1234/api/user/delete/1
+2026-02-03 20:24:53,920 | INFO | test_runner.test_executor | Executing case: DELETE http://localhost:1234/api/user/delete/1
+2026-02-03 20:24:55,282 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/1
+2026-02-03 20:24:56,786 | WARNING | __main__ | Allure CLI not found. Please install Allure to generate reports.

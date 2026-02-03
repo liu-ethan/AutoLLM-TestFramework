@@ -39,6 +39,7 @@ python run.py --mode all
 如需 Allure 报告，请先安装 Allure CLI，随后使用：
 
 allure generate allure-results -o allure-report --clean
+allure serve allure-results
 
 ## 8. 用例格式约定
 
