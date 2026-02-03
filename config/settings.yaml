@@ -1,0 +1,23 @@
+llm:
+  api_key: "sk-pDCCXOt2iDcqUfwWKYyTXtJaHurFo4Dq22xoje9eC1Ly8Du8"
+  base_url: "https://jeniya.top/v1"
+  model: "gpt-4o-mini"
+  timeout_seconds: 60
+  max_retries: 3
+  retry_backoff_seconds: 2
+
+paths:
+  raw_docs_dir: "data/raw_docs"
+  test_cases_dir: "data/test_cases"
+  allure_results_dir: "allure-results"
+  allure_report_dir: "allure-report"
+
+execution:
+  use_ai_assertion: true
+  default_assert_type: "semantic_match"
+  request_timeout_seconds: 30
+  verify_ssl: true
+
+logging:
+  level: "INFO"
+  file: "logs/app.log"
