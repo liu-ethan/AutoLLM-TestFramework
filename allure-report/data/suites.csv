@@ -1,0 +1,97 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"
+    用例执行入口（Pytest 会为每条 JSON 用例生成一次调用）。
+
+    流程：
+    1) 从 case_data 解析请求信息
+    2) 发起 HTTP 请求
+    3) 调用 AIJudge 进行断言
+    ","20","忘记密码重置失败 - 邮箱未注册","test_runner","Wed Feb 04 10:39:22 CST 2026","passed","Wed Feb 04 10:39:22 CST 2026","","test_executor","",""
+"
+    用例执行入口（Pytest 会为每条 JSON 用例生成一次调用）。
+
+    流程：
+    1) 从 case_data 解析请求信息
+    2) 发起 HTTP 请求
+    3) 调用 AIJudge 进行断言
+    ","21","修改密码成功","test_runner","Wed Feb 04 10:39:22 CST 2026","failed","Wed Feb 04 10:39:22 CST 2026","","test_executor","",""
+"
+    用例执行入口（Pytest 会为每条 JSON 用例生成一次调用）。
+
+    流程：
+    1) 从 case_data 解析请求信息
+    2) 发起 HTTP 请求
+    3) 调用 AIJudge 进行断言
+    ","19","用户登录失败 - 用户不存在","test_runner","Wed Feb 04 10:39:22 CST 2026","passed","Wed Feb 04 10:39:22 CST 2026","","test_executor","",""
+"
+    用例执行入口（Pytest 会为每条 JSON 用例生成一次调用）。
+
+    流程：
+    1) 从 case_data 解析请求信息
+    2) 发起 HTTP 请求
+    3) 调用 AIJudge 进行断言
+    ","22","删除用户失败 - 检查关联商家","test_runner","Wed Feb 04 10:39:22 CST 2026","passed","Wed Feb 04 10:39:22 CST 2026","","test_executor","",""
+"
+    用例执行入口（Pytest 会为每条 JSON 用例生成一次调用）。
+
+    流程：
+    1) 从 case_data 解析请求信息
+    2) 发起 HTTP 请求
+    3) 调用 AIJudge 进行断言
+    ","31","用户登录成功","test_runner","Wed Feb 04 10:39:22 CST 2026","passed","Wed Feb 04 10:39:22 CST 2026","","test_executor","",""
+"
+    用例执行入口（Pytest 会为每条 JSON 用例生成一次调用）。
+
+    流程：
+    1) 从 case_data 解析请求信息
+    2) 发起 HTTP 请求
+    3) 调用 AIJudge 进行断言
+    ","26","删除用户成功","test_runner","Wed Feb 04 10:39:22 CST 2026","failed","Wed Feb 04 10:39:22 CST 2026","","test_executor","",""
+"
+    用例执行入口（Pytest 会为每条 JSON 用例生成一次调用）。
+
+    流程：
+    1) 从 case_data 解析请求信息
+    2) 发起 HTTP 请求
+    3) 调用 AIJudge 进行断言
+    ","21","分页查询用户成功","test_runner","Wed Feb 04 10:39:22 CST 2026","passed","Wed Feb 04 10:39:22 CST 2026","","test_executor","",""
+"
+    用例执行入口（Pytest 会为每条 JSON 用例生成一次调用）。
+
+    流程：
+    1) 从 case_data 解析请求信息
+    2) 发起 HTTP 请求
+    3) 调用 AIJudge 进行断言
+    ","80","创建新用户成功","test_runner","Wed Feb 04 10:39:22 CST 2026","failed","Wed Feb 04 10:39:22 CST 2026","","test_executor","",""
+"
+    用例执行入口（Pytest 会为每条 JSON 用例生成一次调用）。
+
+    流程：
+    1) 从 case_data 解析请求信息
+    2) 发起 HTTP 请求
+    3) 调用 AIJudge 进行断言
+    ","21","分页查询用户失败 - 无权限","test_runner","Wed Feb 04 10:39:22 CST 2026","failed","Wed Feb 04 10:39:22 CST 2026","","test_executor","",""
+"
+    用例执行入口（Pytest 会为每条 JSON 用例生成一次调用）。
+
+    流程：
+    1) 从 case_data 解析请求信息
+    2) 发起 HTTP 请求
+    3) 调用 AIJudge 进行断言
+    ","20","忘记密码重置成功","test_runner","Wed Feb 04 10:39:22 CST 2026","failed","Wed Feb 04 10:39:22 CST 2026","","test_executor","",""
+"
+    用例执行入口（Pytest 会为每条 JSON 用例生成一次调用）。
+
+    流程：
+    1) 从 case_data 解析请求信息
+    2) 发起 HTTP 请求
+    3) 调用 AIJudge 进行断言
+    ","20","创建新用户失败 - 用户名已存在","test_runner","Wed Feb 04 10:39:22 CST 2026","passed","Wed Feb 04 10:39:22 CST 2026","","test_executor","",""
+"
+    用例执行入口（Pytest 会为每条 JSON 用例生成一次调用）。
+
+    流程：
+    1) 从 case_data 解析请求信息
+    2) 发起 HTTP 请求
+    3) 调用 AIJudge 进行断言
+    ","21","修改密码失败 - 旧密码错误","test_runner","Wed Feb 04 10:39:22 CST 2026","passed","Wed Feb 04 10:39:22 CST 2026","","test_executor","",""

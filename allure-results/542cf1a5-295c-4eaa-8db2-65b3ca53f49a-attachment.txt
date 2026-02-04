@@ -1,1 +1,0 @@
-[32mINFO    [0m test_runner.test_executor:test_executor.py:38 Executing case: GET http://localhost:1234/api/user/1

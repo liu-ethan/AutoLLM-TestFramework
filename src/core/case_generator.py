@@ -6,6 +6,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, List, Optional
 
+import json5
+
 from src.core.doc_parser import load_documents
 from src.llm_client.openai_client import LLMClient
 from src.utils.file_handler import read_yaml, write_json
@@ -86,7 +88,10 @@ class CaseGenerator:
         允许返回 dict 或 list，最终统一为 list。
         """
 
-        data = json.loads(payload)
+        try:
+            data = json.loads(payload)
+        except json.JSONDecodeError:
+            data = json5.loads(payload)
         if isinstance(data, dict):
             return [data]
         if isinstance(data, list):

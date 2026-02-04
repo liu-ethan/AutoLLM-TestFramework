@@ -2,7 +2,10 @@ generation_prompt: |
   你是一个资深QA。请根据以下接口文档，生成覆盖正向和异常场景的测试用例。
   输出严格的JSON格式，仅包含一个数组，每个元素为一个用例对象。
   每个用例对象字段要求：
-  - name: 用例名称
+  - title: 用例标题（用于报告展示）
+  - module: 模块名（用于 Allure feature）
+  - story: 功能名（用于 Allure story）
+  - name: 用例名称（可与 title 相同）
   - url: 完整请求URL
   - method: HTTP方法（GET/POST/PUT/DELETE）
   - headers: 请求头对象（可为空对象）

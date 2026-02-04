@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from typing import Any
 
 from src.llm_client.openai_client import LLMClient
@@ -43,22 +44,64 @@ class AIJudge:
         - False: 断言失败
         """
 
-        # 1) 精确匹配或禁用 AI
-        if assert_type == "exact_match" or not use_ai_assertion:
+        # 1) 精确匹配
+        if assert_type == "exact_match":
             return str(expected_result).strip() == str(actual_response).strip()
 
-        # 2) 语义匹配：调用 LLM
+        # 2) 语义匹配但禁用 AI：使用轻量启发式规则
+        if not use_ai_assertion:
+            return self._heuristic_match(expected_result, actual_response)
+
+        # 3) 语义匹配：调用 LLM
         prompt = self.prompts.get("judge_prompt", "")
         content = f"A(预期): {expected_result}\nB(实际): {actual_response}"
         result = self.llm_client.chat_completion(prompt, content)
 
-        # 3) 解析结果：只接受 True/False
+        # 4) 解析结果：只接受 True/False
         normalized = result.strip().lower()
         if "true" in normalized:
             return True
         if "false" in normalized:
             return False
 
-        # 4) 兜底：异常输出视为失败，并记录日志
+        # 5) 兜底：异常输出视为失败，并记录日志
         self._logger.warning("AI judge returned unexpected value: %s", result)
         return False
+
+    def _heuristic_match(self, expected_result: Any, actual_response: Any) -> bool:
+        """
+        无 AI 时的轻量语义匹配：
+        - 优先解析 JSON 响应中的 msg/message 字段
+        - 根据预期文本中的关键短语进行包含判断
+        """
+
+        expected_text = str(expected_result).strip()
+        actual_text = str(actual_response).strip()
+
+        msg = ""
+        try:
+            parsed = json.loads(actual_text)
+            if isinstance(parsed, dict):
+                msg = str(parsed.get("msg") or parsed.get("message") or "").strip()
+        except Exception:  # pragma: no cover
+            msg = ""
+
+        key_phrase = ""
+        if "：" in expected_text:
+            key_phrase = expected_text.split("：")[-1].strip(" 。")
+        elif ":" in expected_text:
+            key_phrase = expected_text.split(":")[-1].strip(" .")
+
+        if msg:
+            if key_phrase:
+                if key_phrase in msg or msg in key_phrase:
+                    return True
+            if expected_text.startswith("成功"):
+                return "成功" in msg
+            if expected_text.startswith("失败"):
+                return "失败" in msg
+            if msg in expected_text:
+                return True
+
+        # 无 msg 或无法匹配时，退化为文本包含
+        return expected_text in actual_text

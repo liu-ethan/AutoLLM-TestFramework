@@ -47,3 +47,80 @@
 2026-02-03 20:24:53,920 | INFO | test_runner.test_executor | Executing case: DELETE http://localhost:1234/api/user/delete/1
 2026-02-03 20:24:55,282 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/1
 2026-02-03 20:24:56,786 | WARNING | __main__ | Allure CLI not found. Please install Allure to generate reports.
+2026-02-04 10:24:06,545 | INFO | __main__ | Generating test cases...
+2026-02-04 10:24:23,736 | INFO | src.core.case_generator | Generated cases saved to data/test_cases/combined_2_cases.json
+2026-02-04 10:25:03,795 | INFO | __main__ | Generating test cases...
+2026-02-04 10:25:20,562 | INFO | src.core.case_generator | Generated cases saved to data/test_cases/combined_2_cases.json
+2026-02-04 10:26:14,204 | INFO | __main__ | Generating test cases...
+2026-02-04 10:29:30,687 | INFO | __main__ | Generating test cases...
+2026-02-04 10:29:57,130 | INFO | src.core.case_generator | Generated cases saved to data/test_cases/farm_cases.json
+2026-02-04 10:31:47,966 | INFO | __main__ | Running tests...
+2026-02-04 10:31:48,017 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/login
+2026-02-04 10:31:48,193 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/login
+2026-02-04 10:31:48,218 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/page?currentPage=1&size=10
+2026-02-04 10:31:48,275 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/page?currentPage=1&size=10
+2026-02-04 10:31:48,304 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/add
+2026-02-04 10:31:48,433 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/add
+2026-02-04 10:31:48,457 | INFO | test_runner.test_executor | Executing case: PUT http://localhost:1234/api/user/password/1
+2026-02-04 10:31:48,484 | INFO | test_runner.test_executor | Executing case: PUT http://localhost:1234/api/user/password/1
+2026-02-04 10:31:48,507 | INFO | test_runner.test_executor | Executing case: DELETE http://localhost:1234/api/user/delete/1
+2026-02-04 10:31:48,534 | INFO | test_runner.test_executor | Executing case: DELETE http://localhost:1234/api/user/delete/1
+2026-02-04 10:31:48,559 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/forget?email=user@example.com&newPassword=newpassword
+2026-02-04 10:31:48,581 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/forget?email=unregistered@example.com&newPassword=newpassword
+2026-02-04 10:31:49,694 | INFO | __main__ | Allure report generated at allure-report
+2026-02-04 10:33:02,999 | INFO | __main__ | Running tests...
+2026-02-04 10:33:03,048 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/login
+2026-02-04 10:33:03,103 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/login
+2026-02-04 10:33:03,126 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/page?currentPage=1&size=10
+2026-02-04 10:33:03,154 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/page?currentPage=1&size=10
+2026-02-04 10:33:03,180 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/add
+2026-02-04 10:33:03,265 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/add
+2026-02-04 10:33:03,289 | INFO | test_runner.test_executor | Executing case: PUT http://localhost:1234/api/user/password/1
+2026-02-04 10:33:03,323 | INFO | test_runner.test_executor | Executing case: PUT http://localhost:1234/api/user/password/1
+2026-02-04 10:33:03,346 | INFO | test_runner.test_executor | Executing case: DELETE http://localhost:1234/api/user/delete/1
+2026-02-04 10:33:03,375 | INFO | test_runner.test_executor | Executing case: DELETE http://localhost:1234/api/user/delete/1
+2026-02-04 10:33:03,400 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/forget?email=user@example.com&newPassword=newpassword
+2026-02-04 10:33:03,422 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/forget?email=unregistered@example.com&newPassword=newpassword
+2026-02-04 10:33:14,502 | INFO | __main__ | Allure report generated at allure-report
+2026-02-04 10:33:20,794 | INFO | __main__ | Running tests...
+2026-02-04 10:33:20,844 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/login
+2026-02-04 10:33:20,909 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/login
+2026-02-04 10:33:20,931 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/page?currentPage=1&size=10
+2026-02-04 10:33:20,955 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/page?currentPage=1&size=10
+2026-02-04 10:33:20,977 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/add
+2026-02-04 10:33:21,052 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/add
+2026-02-04 10:33:21,074 | INFO | test_runner.test_executor | Executing case: PUT http://localhost:1234/api/user/password/1
+2026-02-04 10:33:21,099 | INFO | test_runner.test_executor | Executing case: PUT http://localhost:1234/api/user/password/1
+2026-02-04 10:33:21,123 | INFO | test_runner.test_executor | Executing case: DELETE http://localhost:1234/api/user/delete/1
+2026-02-04 10:33:21,151 | INFO | test_runner.test_executor | Executing case: DELETE http://localhost:1234/api/user/delete/1
+2026-02-04 10:33:21,176 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/forget?email=user@example.com&newPassword=newpassword
+2026-02-04 10:33:21,198 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/forget?email=unregistered@example.com&newPassword=newpassword
+2026-02-04 10:33:32,286 | INFO | __main__ | Allure report generated at allure-report
+2026-02-04 10:37:15,336 | INFO | __main__ | Running tests...
+2026-02-04 10:37:15,386 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/login
+2026-02-04 10:37:15,418 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/login
+2026-02-04 10:37:15,439 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/page?currentPage=1&size=10
+2026-02-04 10:37:15,461 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/page?currentPage=1&size=10
+2026-02-04 10:37:15,506 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/add
+2026-02-04 10:37:15,580 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/add
+2026-02-04 10:37:15,601 | INFO | test_runner.test_executor | Executing case: PUT http://localhost:1234/api/user/password/1
+2026-02-04 10:37:15,624 | INFO | test_runner.test_executor | Executing case: PUT http://localhost:1234/api/user/password/1
+2026-02-04 10:37:15,645 | INFO | test_runner.test_executor | Executing case: DELETE http://localhost:1234/api/user/delete/1
+2026-02-04 10:37:15,679 | INFO | test_runner.test_executor | Executing case: DELETE http://localhost:1234/api/user/delete/1
+2026-02-04 10:37:15,701 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/forget?email=user@example.com&newPassword=newpassword
+2026-02-04 10:37:15,723 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/forget?email=unregistered@example.com&newPassword=newpassword
+2026-02-04 10:37:16,849 | INFO | __main__ | Allure report generated at allure-report
+2026-02-04 10:39:21,979 | INFO | __main__ | Running tests...
+2026-02-04 10:39:22,029 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/login
+2026-02-04 10:39:22,062 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/login
+2026-02-04 10:39:22,082 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/page?currentPage=1&size=10
+2026-02-04 10:39:22,104 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/page?currentPage=1&size=10
+2026-02-04 10:39:22,148 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/add
+2026-02-04 10:39:22,231 | INFO | test_runner.test_executor | Executing case: POST http://localhost:1234/api/user/add
+2026-02-04 10:39:22,252 | INFO | test_runner.test_executor | Executing case: PUT http://localhost:1234/api/user/password/1
+2026-02-04 10:39:22,275 | INFO | test_runner.test_executor | Executing case: PUT http://localhost:1234/api/user/password/1
+2026-02-04 10:39:22,297 | INFO | test_runner.test_executor | Executing case: DELETE http://localhost:1234/api/user/delete/1
+2026-02-04 10:39:22,326 | INFO | test_runner.test_executor | Executing case: DELETE http://localhost:1234/api/user/delete/1
+2026-02-04 10:39:22,348 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/forget?email=user@example.com&newPassword=newpassword
+2026-02-04 10:39:22,370 | INFO | test_runner.test_executor | Executing case: GET http://localhost:1234/api/user/forget?email=unregistered@example.com&newPassword=newpassword
+2026-02-04 10:39:23,540 | INFO | __main__ | Allure report generated at allure-report
