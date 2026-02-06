@@ -1,7 +1,7 @@
 llm:
-  api_key: "sk-pDCCXOt2iDcqUfwWKYyTXtJaHurFo4Dq22xoje9eC1Ly8Du8"
-  base_url: "https://jeniya.top/v1"
-  model: "gpt-4o-mini"
+  api_key: "your_api_key"
+  base_url: "your_base_url"
+  model: "your_model"
   timeout_seconds: 60
   max_retries: 3
   retry_backoff_seconds: 2

@@ -17,6 +17,7 @@
 
 * **方式:** 建议使用 JWT (Bearer Token)
 * **Header:** `Authorization: {token}`
+* **Token:** "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiI5IiwiZXhwIjoxNzcwMjE1MzgzfQ.COtG-Zi1UIwuDjiHAgMufQ_SpgPPaR528tQ2fvzF5Zo"
 
 ---
 

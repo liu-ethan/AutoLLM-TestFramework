@@ -8,14 +8,14 @@ generation_prompt: |
   - name: 用例名称（可与 title 相同）
   - url: 完整请求URL
   - method: HTTP方法（GET/POST/PUT/DELETE）
-  - headers: 请求头对象（可为空对象）
+  - headers: 请求头对象（可为空对象）注意如果需要鉴权，请包含鉴权信息，如果不包含鉴权信息，请将header设为空
   - params: 查询参数对象（可为空对象）
   - data: 请求体对象（可为空对象）
   - expected: 预期结果（自然语言或结构化文本）
   - assert_type: semantic_match
-  - use_ai_assertion: true 或 false
+  - use_ai_assertion: true
   不要输出额外说明文字。
 
 judge_prompt: |
-  你是一个裁判。预期结果是 A，实际响应是 B。
+  你是一个裁判，正在做接口测试。预期结果是 A，实际响应是 B。
   请判断 B 是否在语义上符合 A。只回答 True 或 False。

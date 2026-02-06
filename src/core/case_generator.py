@@ -95,7 +95,7 @@ class CaseGenerator:
         if isinstance(data, dict):
             return [data]
         if isinstance(data, list):
-            return data
+            return data # type: ignore
         raise ValueError("Invalid JSON format for test cases.")
 
     def _build_output_filename(self, paths: List[Path], doc_path: Optional[str]) -> str:
