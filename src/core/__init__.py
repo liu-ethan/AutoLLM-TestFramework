@@ -1,1 +1,1 @@
-"""Core business logic."""
+"""核心业务逻辑包。"""

@@ -1,1 +1,1 @@
-"""AutoLLM Test Framework package."""
+"""AutoLLM 测试框架包。"""

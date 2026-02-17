@@ -1,3 +1,11 @@
+"""Pytest 用例执行入口。
+
+外部库：
+- pytest: 测试运行与参数化。
+- requests: 执行测试用例的 HTTP 请求。
+- allure: 生成测试报告与元数据。
+"""
+
 from __future__ import annotations
 
 from typing import Any, Dict

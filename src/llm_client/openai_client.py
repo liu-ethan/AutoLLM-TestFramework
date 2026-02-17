@@ -1,3 +1,9 @@
+"""OpenAI 兼容的对话调用封装。
+
+外部库：
+- openai: 官方 SDK，用于模型调用。
+"""
+
 from __future__ import annotations
 
 import time

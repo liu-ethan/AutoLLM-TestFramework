@@ -1,3 +1,11 @@
+"""CLI 入口：生成并运行接口测试用例。
+
+外部库：
+- argparse: 解析命令行参数。
+- pytest: 执行生成的测试用例。
+- subprocess: 调用 Allure CLI 生成报告。
+"""
+
 from __future__ import annotations
 
 import argparse

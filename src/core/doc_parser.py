@@ -1,3 +1,5 @@
+"""加载并合并原始接口文档。"""
+
 from __future__ import annotations
 
 from pathlib import Path

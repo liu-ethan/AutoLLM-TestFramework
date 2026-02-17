@@ -1,3 +1,9 @@
+"""统一日志配置。
+
+外部库：
+- logging: Python 标准日志框架。
+"""
+
 from __future__ import annotations
 
 import logging

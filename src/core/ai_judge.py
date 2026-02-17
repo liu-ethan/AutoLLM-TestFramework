@@ -1,3 +1,9 @@
+"""基于 AI 的语义断言。
+
+外部库：
+- json: 解析响应文本，用于轻量启发式匹配。
+"""
+
 from __future__ import annotations
 
 import json

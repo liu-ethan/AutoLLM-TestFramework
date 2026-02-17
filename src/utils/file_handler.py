@@ -1,3 +1,9 @@
+"""JSON/YAML/文本的读写工具。
+
+外部库：
+- yaml: 解析与写入 YAML 配置。
+"""
+
 from __future__ import annotations
 
 import json

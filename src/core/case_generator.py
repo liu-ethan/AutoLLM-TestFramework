@@ -1,3 +1,9 @@
+"""基于 LLM 的用例生成器。
+
+外部库：
+- json5: 容错解析模型输出的 JSON。
+"""
+
 from __future__ import annotations
 
 import json
@@ -95,7 +101,7 @@ class CaseGenerator:
         if isinstance(data, dict):
             return [data]
         if isinstance(data, list):
-            return data # type: ignore
+            return data  # type: ignore[list-item]
         raise ValueError("Invalid JSON format for test cases.")
 
     def _build_output_filename(self, paths: List[Path], doc_path: Optional[str]) -> str:

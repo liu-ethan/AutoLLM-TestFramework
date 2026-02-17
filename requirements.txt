@@ -1,6 +1,12 @@
+# OpenAI SDK，用于 LLM 调用
 openai>=1.40.0
+# Pytest 运行器，用于测试执行
 pytest>=8.0.0
+# HTTP 客户端，用于接口请求
 requests>=2.31.0
+# YAML 解析，用于配置/提示词文件
 pyyaml>=6.0.0
+# Allure 集成，用于报告
 allure-pytest>=2.13.2
+# 容错 JSON 解析，用于模型输出
 json5>=0.9.25

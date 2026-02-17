@@ -1,3 +1,4 @@
+# LLM 生成用例的提示词模板
 generation_prompt: |
   你是一个资深QA。请根据以下接口文档，生成覆盖正向和异常场景的测试用例。
   输出严格的JSON格式，仅包含一个数组，每个元素为一个用例对象。
@@ -16,6 +17,7 @@ generation_prompt: |
   - use_ai_assertion: true
   不要输出额外说明文字。
 
+# LLM 判定语义匹配的提示词模板
 judge_prompt: |
   你是一个裁判，正在做接口测试。预期结果是 A，实际响应是 B。
   请判断 B 是否在语义上符合 A。只回答 True 或 False。

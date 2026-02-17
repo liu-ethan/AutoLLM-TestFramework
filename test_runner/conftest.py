@@ -1,3 +1,9 @@
+"""Pytest 配置与用例动态加载。
+
+外部库：
+- pytest: 提供钩子与参数化。
+"""
+
 from __future__ import annotations
 
 from pathlib import Path
