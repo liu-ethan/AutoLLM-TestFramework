@@ -1,7 +1,7 @@
-"""JSON/YAML/文本的读写工具。
+"""结构化与文本的读写工具。
 
 外部库：
-- yaml: 解析与写入 YAML 配置。
+- 配置解析库：解析与写入配置内容。
 """
 
 from __future__ import annotations
@@ -41,3 +41,12 @@ def read_text(path: str) -> str:
 
     with open(path, "r", encoding="utf-8") as file:
         return file.read()
+
+
+def write_yaml(path: str, data: Dict[str, Any]) -> None:
+    """将对象写入 YAML 文件，自动创建目录。"""
+
+    target = Path(path)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    with open(target, "w", encoding="utf-8") as file:
+        yaml.safe_dump(data, file, allow_unicode=True, sort_keys=False)

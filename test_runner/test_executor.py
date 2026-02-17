@@ -1,9 +1,9 @@
-"""Pytest 用例执行入口。
+"""测试用例执行入口。
 
 外部库：
-- pytest: 测试运行与参数化。
-- requests: 执行测试用例的 HTTP 请求。
-- allure: 生成测试报告与元数据。
+- 测试框架：测试运行与参数化。
+- 请求库：执行测试用例的接口请求。
+- 报告库：生成测试报告与元数据。
 """
 
 from __future__ import annotations
@@ -19,7 +19,7 @@ from src.utils.file_handler import read_yaml
 from src.utils.logger import get_logger
 
 
-def test_api_case(case_data: Dict[str, Any]) -> None:
+def test_api_case(case_data: Dict[str, Any], auth_token: str) -> None:
     """
     用例执行入口（Pytest 会为每条 JSON 用例生成一次调用）。
 
@@ -34,7 +34,7 @@ def test_api_case(case_data: Dict[str, Any]) -> None:
     settings = read_yaml("config/settings.yaml")
     exec_cfg = settings.get("execution", {})
 
-    # 2) 动态化 Allure 标注
+    # 2) 动态化报告标注
     module_name = case_data.get("module")
     story_name = case_data.get("story")
     case_title = case_data.get("title") or case_data.get("name")
@@ -51,6 +51,12 @@ def test_api_case(case_data: Dict[str, Any]) -> None:
     headers = case_data.get("headers") or {}
     params = case_data.get("params") or {}
     payload = case_data.get("data") or {}
+
+    use_auth = case_data.get("use_auth", exec_cfg.get("auto_inject_token", False))
+    if use_auth and auth_token:
+        header_name = exec_cfg.get("auth_header_name", "Authorization")
+        if header_name not in headers:
+            headers[header_name] = auth_token
 
     if not url:
         pytest.skip("Case missing URL")

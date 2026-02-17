@@ -1,7 +1,7 @@
-"""Pytest 配置与用例动态加载。
+"""测试配置与用例动态加载。
 
 外部库：
-- pytest: 提供钩子与参数化。
+- 测试框架：提供钩子与参数化。
 """
 
 from __future__ import annotations
@@ -11,6 +11,7 @@ from typing import Any, List
 
 import pytest
 
+from src.core.auth_setup import AuthSetup
 from src.utils.file_handler import read_json, read_yaml
 from src.utils.logger import get_logger
 
@@ -62,6 +63,32 @@ def pytest_generate_tests(metafunc: pytest.Metafunc) -> None:
         metafunc.parametrize("case_data", [])
         return
 
-    # 生成更易读的用例 ID
+    # 生成更易读的用例编号
     ids = [case.get("name", f"case_{idx}") for idx, case in enumerate(cases)]
     metafunc.parametrize("case_data", cases, ids=ids)
+
+
+@pytest.fixture(scope="session")
+def auth_token() -> str:
+    """在配置存在时返回用于测试执行的 token。"""
+
+    settings = read_yaml("config/settings.yaml")
+    auth_cfg = settings.get("auth", {})
+    if not auth_cfg:
+        return ""
+
+    auto_refresh = bool(auth_cfg.get("auto_refresh_token", False))
+    token = ""
+    if auto_refresh:
+        token = AuthSetup().run()
+    else:
+        token = str(auth_cfg.get("token", "")).strip()
+
+    if not token:
+        return ""
+
+    token_prefix = str(auth_cfg.get("token_prefix", "Bearer "))
+    if token_prefix and not token.startswith(token_prefix):
+        token = f"{token_prefix}{token}"
+
+    return token

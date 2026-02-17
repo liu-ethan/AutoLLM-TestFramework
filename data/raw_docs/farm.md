@@ -1,25 +1,4 @@
-```markdown
 # 农产品销售系统 API 接口文档 v1.0
-
-## 1. 基础信息
-- **Base URL:** `http://localhost:1234/api/user`
-- **Content-Type:** `application/json`
-- **通用响应格式:** ```json
-  {
-    "code": "0",    // "0" 表示成功，非 "0" 表示业务失败
-    "msg": "提示信息",
-    "data": {}      // 返回的数据负载
-  }
-
-```
-
-## 2. 认证说明
-
-* **方式:** 建议使用 JWT (Bearer Token)
-* **Header:** `Authorization: {token}`
-* **Token:** "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiI5IiwiZXhwIjoxNzcwMjE1MzgzfQ.COtG-Zi1UIwuDjiHAgMufQ_SpgPPaR528tQ2fvzF5Zo"
-
----
 
 ## 3. 接口列表
 
@@ -198,5 +177,3 @@
 | 按名查询 | `/username/{username}` | GET | 根据用户名精确查询 |
 | 按角色查询 | `/role/{role}` | GET | 获取该角色下的用户列表 |
 | 获取全部 | `/` | GET | 返回所有用户列表 (不分页) |
-
-```

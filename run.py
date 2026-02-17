@@ -1,9 +1,9 @@
-"""CLI 入口：生成并运行接口测试用例。
+"""命令行入口：生成并运行接口测试用例。
 
 外部库：
-- argparse: 解析命令行参数。
-- pytest: 执行生成的测试用例。
-- subprocess: 调用 Allure CLI 生成报告。
+- 参数解析库：解析命令行参数。
+- 测试运行库：执行生成的测试用例。
+- 子进程库：调用报告工具命令行生成报告。
 """
 
 from __future__ import annotations
@@ -34,15 +34,15 @@ def _run_pytest(settings: dict) -> int:
             "--alluredir",
             results_dir,
         ]
-    )  # type: ignore[no-any-return]
+    )
 
 
 def _generate_allure_report(settings: dict) -> None:
     """
-    调用 Allure CLI 生成测试报告。
+    调用报告工具命令行生成测试报告。
 
     注意：
-    - 需要用户本地安装 Allure CLI
+    - 需要用户本地安装报告工具命令行
     - 生成的报告目录由 settings.yaml 控制
     """
 
@@ -65,11 +65,11 @@ def _generate_allure_report(settings: dict) -> None:
 
 def main() -> int:
     """
-    CLI 主入口：支持三种模式。
+    命令行主入口：支持三种模式。
 
-    --mode generate: 仅生成 JSON 用例
-    --mode run:      仅执行用例
-    --mode all:      生成 + 执行 + 生成 Allure 报告
+    --mode generate：仅生成结构化用例
+    --mode run：仅执行用例
+    --mode all：生成 + 执行 + 生成测试报告
     """
 
     parser = argparse.ArgumentParser(description="AutoLLM Test Framework CLI")

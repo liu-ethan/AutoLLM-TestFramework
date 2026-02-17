@@ -39,7 +39,7 @@ def load_documents(raw_docs_dir: str, doc_path: Optional[str] = None) -> Tuple[s
             return "", []
         paths = sorted([p for p in raw_dir.iterdir() if p.suffix in {".md", ".txt"}])
 
-    # 合并内容供 LLM 一次性处理
+    # 合并内容供模型一次性处理
     contents = []
     for path in paths:
         contents.append(read_text(str(path)))

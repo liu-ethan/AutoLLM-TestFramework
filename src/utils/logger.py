@@ -1,7 +1,7 @@
 """统一日志配置。
 
 外部库：
-- logging: Python 标准日志框架。
+- 日志库：提供标准日志能力。
 """
 
 from __future__ import annotations
@@ -30,7 +30,7 @@ def get_logger(name: str) -> logging.Logger:
 
     logger = logging.getLogger(name)
     if logger.handlers:
-        # 避免重复添加 handler（多次调用时常见问题）
+        # 避免重复添加处理器（多次调用时常见问题）
         return logger
 
     logger.setLevel(getattr(logging, level_name.upper(), logging.INFO))
@@ -42,7 +42,7 @@ def get_logger(name: str) -> logging.Logger:
         "%(asctime)s | %(levelname)s | %(name)s | %(message)s"
     )
 
-    # 文件日志：最大 1MB，保留 3 个备份
+    # 文件日志：最大 1 兆，保留 3 个备份
     file_handler = RotatingFileHandler(log_file, maxBytes=1024 * 1024, backupCount=3)
     file_handler.setFormatter(formatter)
 

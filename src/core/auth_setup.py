@@ -1,7 +1,7 @@
-"""认证初始化：获取并持久化接口 token。
+"""认证初始化：获取并持久化接口令牌。
 
 外部库：
-- requests: 发送登录请求获取 token。
+- 请求库：发送登录请求获取令牌。
 """
 
 from __future__ import annotations
@@ -60,14 +60,14 @@ class AuthSetup:
         write_yaml(self.settings_path, self.settings)
         self._logger.info("Token saved to settings.yaml")
 
-        # 将 token 写入 raw_docs 中的占位符
+        # 将令牌写入原始文档中的占位符
         raw_docs_dir = Path(self.settings.get("paths", {}).get("raw_docs_dir", "data/raw_docs"))
         self._replace_token_in_docs(raw_docs_dir, f"{token_prefix}{token}")
 
         return token
 
     def _extract_token(self, data: Dict[str, Any], path: str) -> str:
-        """根据简单的 dot path 提取 token，例如 data.token。"""
+        """根据简单的点路径提取 token，例如 data.token。"""
 
         current: Any = data
         for key in path.split("."):

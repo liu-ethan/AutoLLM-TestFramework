@@ -15,9 +15,24 @@ generation_prompt: |
   - expected: 预期结果（自然语言或结构化文本）
   - assert_type: semantic_match
   - use_ai_assertion: true
+  约束：不要使用 request/body/raw_body/json 等嵌套字段；不要输出任何额外字段。
+  不要输出额外说明文字。
+
+# Agentic 生成用例的提示词（带反馈修正）
+agent_generation_prompt: |
+  你是生成 Agent（Student）。根据以下接口文档切片与全局变量，输出高质量测试用例。
+  输出严格的JSON格式，仅包含一个数组，每个元素为一个用例对象。
+  字段要求与 generation_prompt 相同。
+  如果收到 Judge 反馈，请修正并提升用例质量。
+  约束：不要使用 request/body/raw_body/json 等嵌套字段；不要输出任何额外字段。
   不要输出额外说明文字。
 
 # LLM 判定语义匹配的提示词模板
 judge_prompt: |
   你是一个裁判，正在做接口测试。预期结果是 A，实际响应是 B。
   请判断 B 是否在语义上符合 A。只回答 True 或 False。
+
+# Agentic Judge 提示词（用例质量评审）
+agent_judge_prompt: |
+  你是评判 Agent（Teacher）。请检查生成用例是否字段完整、断言合理、覆盖正向与异常场景。
+  如果通过只回答 Pass；如果不通过回答 Fail 并给出明确修改建议。
