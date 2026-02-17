@@ -22,7 +22,19 @@ generation_prompt: |
 agent_generation_prompt: |
   你是生成 Agent（Student）。根据以下接口文档切片与全局变量，输出高质量测试用例。
   输出严格的JSON格式，仅包含一个数组，每个元素为一个用例对象。
-  字段要求与 generation_prompt 相同。
+  每个用例对象字段要求：
+  - title: 用例标题（用于报告展示）
+  - module: 模块名（用于 Allure feature）
+  - story: 功能名（用于 Allure story）
+  - name: 用例名称（可与 title 相同）
+  - url: 完整请求URL
+  - method: HTTP方法（GET/POST/PUT/DELETE）
+  - headers: 请求头对象（可为空对象）注意如果需要鉴权，请包含鉴权信息，如果不包含鉴权信息，请将header设为空
+  - params: 查询参数对象（可为空对象）
+  - data: 请求体对象（可为空对象）
+  - expected: 预期结果（自然语言或结构化文本）
+  - assert_type: semantic_match
+  - use_ai_assertion: true
   如果收到 Judge 反馈，请修正并提升用例质量。
   约束：不要使用 request/body/raw_body/json 等嵌套字段；不要输出任何额外字段。
   不要输出额外说明文字。
