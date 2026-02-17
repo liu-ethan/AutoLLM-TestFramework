@@ -1,5 +1,4 @@
 # LLM 调用相关配置
-# 请把settings2.yaml改名为settings.yaml
 llm:
   api_key: ""
   base_url: ""
@@ -7,6 +6,22 @@ llm:
   timeout_seconds: 60
   max_retries: 3
   retry_backoff_seconds: 2
+
+# 多模型配置（可选）
+llm_profiles:
+  default:
+    model: "gpt-4o-mini"
+  small:
+    model: "gpt-4o-mini"
+  large:
+    model: "gpt-5.2"
+
+llm_modules:
+  default: "default"
+  case_generator: "default"
+  agent_generator: "default"
+  agent_judge: "large"
+  ai_judge: "large"
 
 # 路径配置（原始文档/用例/报告）
 paths:
@@ -21,8 +36,47 @@ execution:
   default_assert_type: "semantic_match"
   request_timeout_seconds: 30
   verify_ssl: true
+  auto_inject_token: true
+  auth_header_name: "Authorization"
 
 # 日志配置
 logging:
   level: "INFO"
   file: "logs/app.log"
+
+# RAG 切片配置
+rag:
+  enabled: true
+  header_levels: [1, 2, 3]
+  output_per_chunk: true
+  min_content_length: 200
+  include_keywords: []
+  exclude_keywords:
+    - "license"
+    - "版权"
+
+# Agentic Workflow 配置
+agentic:
+  enabled: true
+  max_rounds: 2
+  max_rounds_by_module:
+    default: 2
+    agentic_loop: 2
+  fail_fast: false
+
+# 全局变量注入
+global_vars:
+  enabled: true
+  path: "config/global_vars.yaml"
+
+# 认证配置（可选）
+auth:
+  login_url: "http://localhost:1234/api/user/login"
+  username: "test_usr123"
+  password: "123456"
+  headers: {}
+  token_json_path: "data.token"
+  token_prefix: "Bearer "
+  token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiI5IiwiZXhwIjoxNzcxMzMwMTg4fQ.AzZaijwUbL3YFgeYrsICEbAjUZ09A8Z-HXzLmZ_pAho"
+  auto_refresh_token: false
+
