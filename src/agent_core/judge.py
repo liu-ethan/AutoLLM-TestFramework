@@ -29,11 +29,11 @@ class AgentJudge:
         content = f"[Document Chunk]\n{chunk_text}\n\n[Generated Cases]\n{cases}"
         # 调用 LLM 获取评审结果
         result = self.llm_client.chat_completion(prompt, content).strip()
-        normalized = result.lower()
+        normalized = result.lower() # 将结果转换为小写以便判定
         # 兼容大小写，判定通过或失败
-        if ("pass" in normalized or "Pass" in normalized) and "fail" not in normalized:
+        if "pass" in normalized and "fail" not in normalized:
             return True, result
-        if "fail" in normalized or "Fail" in normalized:
+        if "fail" in normalized:
             return False, result
         # 未命中关键字则告警并视为失败
         self._logger.warning("Agent judge returned unexpected value: %s", result)

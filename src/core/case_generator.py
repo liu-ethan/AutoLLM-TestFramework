@@ -120,7 +120,7 @@ class CaseGenerator:
             payload = self._merge_context(global_context, chunk_text)
             # 选择 Agentic 循环或直接生成
             if agentic_enabled:
-                cases, feedback = orchestrator.run(payload)
+                cases, feedback = orchestrator.run(payload) # 直接跳到 Agent 循环，获取最终用例与评审反馈
                 if feedback:
                     self._logger.info("Agent judge feedback: %s", feedback)
             else:

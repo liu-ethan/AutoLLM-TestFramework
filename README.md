@@ -95,6 +95,15 @@ AutoLLM-TestFramework
                                                           +-----------------+
 
 ```
+---
+### 测试用例生成CaseGenerator(2.18日更新）:
+
+![CaseGenerator.png](png/CaseGenerator.png)
+
+### 评审AgentJudge(2.18日更新）:
+
+![AIJudge.png](png/AIJudge.png)
+
 
 ---
 

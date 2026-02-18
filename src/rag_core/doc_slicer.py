@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import re
 from typing import Any, Dict, List, Optional
 
 from src.utils.logger import get_logger
@@ -16,9 +15,6 @@ except Exception:
     _HAS_LANGCHAIN = False
 
 
-_HEADER_RE = re.compile(r"^(#{1,6})\s+(.*)$")
-
-
 class DocSlicer:
     """按标题层级切分标记文本。"""
 
@@ -29,9 +25,9 @@ class DocSlicer:
     def slice_text(self, text: str) -> List[Dict[str, Any]]:
         """按标题切分文本为多个切片。"""
 
-        if _HAS_LANGCHAIN:
-            return self._slice_with_langchain(text)
-        return self._slice_with_regex(text)
+        if not _HAS_LANGCHAIN:
+            raise RuntimeError("LangChain is required for slicing but is not available.")
+        return self._slice_with_langchain(text)
 
     def _slice_with_langchain(self, text: str) -> List[Dict[str, Any]]:
         """可用时使用 LangChain 的 MarkdownHeaderTextSplitter。"""
@@ -50,45 +46,6 @@ class DocSlicer:
                     "metadata": dict(doc.metadata),
                 }
             )
-        return chunks
-
-    def _slice_with_regex(self, text: str) -> List[Dict[str, Any]]:
-        """基于正则的兜底切片逻辑。"""
-
-        lines = text.splitlines()
-        chunks: List[Dict[str, Any]] = []
-        current: Dict[str, Any] = {"title": "", "level": None, "lines": []}
-
-        def flush() -> None:
-            if not current["lines"]:
-                return
-            content = "\n".join(current["lines"]).strip()
-            if content:
-                chunks.append(
-                    {
-                        "index": len(chunks),
-                        "title": current["title"] or f"chunk_{len(chunks)}",
-                        "content": content,
-                        "metadata": {"level": current["level"]},
-                    }
-                )
-            current["lines"] = []
-
-        for line in lines:
-            match = _HEADER_RE.match(line.strip())
-            if match:
-                level = len(match.group(1))
-                if level in self.header_levels:
-                    flush()
-                    current["title"] = match.group(2).strip()
-                    current["level"] = level
-                    current["lines"].append(line)
-                    continue
-            current["lines"].append(line)
-
-        flush()
-        if not chunks:
-            chunks.append({"index": 0, "title": "chunk_0", "content": text, "metadata": {}})
         return chunks
 
     def _pick_header_title(self, metadata: Dict[str, Any]) -> str:
